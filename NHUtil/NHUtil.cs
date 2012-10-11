@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2012 Adriel Café <ac@adrielcafe.com>
+    Copyright (c) 2012 Adriel Café <ac@adrielcafe.com> 
     GitHub Repository: http://github.com/adrielcafe/NHibernateUtil
 */
 
