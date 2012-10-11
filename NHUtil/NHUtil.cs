@@ -1,5 +1,5 @@
-﻿/*
-    Copyright (c) 2012 Adriel Café <ac@adrielcafe.com> 
+/*
+    Copyright (c) 2012 Adriel Café <ac@adrielcafe.com>
     GitHub Repository: http://github.com/adrielcafe/NHibernateUtil
 */
 
@@ -15,9 +15,9 @@ using NHibernate.Tool.hbm2ddl;
 namespace NHibernate.Util
 {
     /// <summary>
-    /// SGBDs supported
+    /// DBMSs supported
     /// </summary>
-	public enum SGBD
+	public enum DBMS
 	{
 		MySQL,
 		PostgreSQL,
@@ -36,25 +36,25 @@ namespace NHibernate.Util
         /// <summary>
         /// Connects to database
         /// </summary>
-        /// <param name="sgbd">The SGBD that will be connected</param>
+        /// <param name="sgbd">The DBMS that will be connected</param>
         /// <param name="server">The server</param>
         /// <param name="port">The port</param>
         /// <param name="database">The database</param>
         /// <param name="username">The username</param>
         /// <param name="password">The password</param>
         /// <returns>True if succeed</returns>
-		public static bool Connect(SGBD sgbd, string server, int port, string database, string username, string password)
+		public static bool Connect(DBMS sgbd, string server, int port, string database, string username, string password)
 		{
 			try
 			{
                 string conStr = null;
                 switch (sgbd)
                 {
-                    case SGBD.SQLServer2008:
+                    case DBMS.SQLServer2008:
                         conStr = string.Format("Data Source={0}; User Id={2}; Password={3}; Integrated Security=SSPI;",
                             server, username, password);
                         break;
-                    case SGBD.Oracle10:
+                    case DBMS.Oracle10:
                         conStr = string.Format("Data Source={0}; Database={1}; User Id={2}; Password={3}; Integrated Security=SSPI;",
                             server, database, username, password);
                         break;
@@ -66,7 +66,7 @@ namespace NHibernate.Util
 
 				switch (sgbd)
 				{
-					case SGBD.MySQL:
+					case DBMS.MySQL:
 						config = Fluently.Configure()
 							.Database(MySQLConfiguration.Standard.ConnectionString(conStr)
 								.IsolationLevel(IsolationLevel.ReadCommitted))
@@ -74,7 +74,7 @@ namespace NHibernate.Util
 							.BuildConfiguration();
 						break;
 
-					case SGBD.PostgreSQL:
+					case DBMS.PostgreSQL:
 						config = Fluently.Configure()
 							.Database(PostgreSQLConfiguration.Standard.ConnectionString(conStr)
 								.IsolationLevel(IsolationLevel.ReadCommitted))
@@ -82,7 +82,7 @@ namespace NHibernate.Util
 							.BuildConfiguration();
 						break;
 
-					case SGBD.SQLite:
+					case DBMS.SQLite:
 						config = Fluently.Configure()
 							.Database(SQLiteConfiguration.Standard.UsingFile(database)
 								.IsolationLevel(IsolationLevel.ReadCommitted))
@@ -90,7 +90,7 @@ namespace NHibernate.Util
 							.BuildConfiguration();
 						break;
 
-					case SGBD.SQLServer2008:
+					case DBMS.SQLServer2008:
 						config = Fluently.Configure()
 							.Database(MsSqlConfiguration.MsSql2008.ConnectionString(conStr)
 								.IsolationLevel(IsolationLevel.ReadCommitted))
@@ -98,7 +98,7 @@ namespace NHibernate.Util
 							.BuildConfiguration();
 						break;
 
-					case SGBD.Oracle10:
+					case DBMS.Oracle10:
 						config = Fluently.Configure()
 							.Database(OracleDataClientConfiguration.Oracle10.ConnectionString(conStr)
 								.IsolationLevel(IsolationLevel.ReadCommitted))
