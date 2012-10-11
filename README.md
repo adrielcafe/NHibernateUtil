@@ -43,15 +43,20 @@ public class MapPerson : ClassMap<Person>
 
 First of all we need to connect to the database. Below are possible ways to connect with the DBMS.
 ```csharp
+// MySQL
 NHUtil.Connect(DBMS.MySQL, "localhost", 3306, "test_nh", "root", "root");
 
+// PostgreSQL
 NHUtil.Connect(DBMS.PostgreSQL, "localhost", 5432, "test_nh", "postgres", "root");
 
+// SQLServer 2008
 NHUtil.Connect(DBMS.SQLServer2008, @".\SQLEXPRESS", 0, "test_nh", null, null);
 
+// SQLite
 NHUtil.Connect(DBMS.SQLite, null, 0, @"c:\test_nh.db", null, null);
 
-// Not yet been tested in Oracle
+// Oracle
+// Not yet been tested
 ```
 
 To disconnect:
