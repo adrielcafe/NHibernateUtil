@@ -59,7 +59,7 @@ To disconnect:
 NHUtil.Disconnect();
 ```
 
-**ATTENTION**: 
+**ATTENTION**: In most of cases you only need to connect and disconnect from database ONE TIME while your application is running.
 
 
 #### CRUD
