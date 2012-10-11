@@ -103,3 +103,9 @@ NHUtil.Delete(person);
 ```
 
 #### Batch INSERT, UPDATE and DELETE
+The only thing you need to do is send a *object[]* this way:
+```csharp
+
+```
+
+
