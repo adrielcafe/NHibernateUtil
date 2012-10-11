@@ -63,3 +63,24 @@ NHUtil.Disconnect();
 
 
 #### CRUD
+For SELECT all records:
+```csharp
+
+```
+
+For SELECT just one record by ID:
+```csharp
+
+```
+
+The INSERT and UPDATE:
+```csharp
+
+```
+
+And DELETE:
+```csharp
+
+```
+
+
