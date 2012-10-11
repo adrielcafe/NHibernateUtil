@@ -63,19 +63,19 @@ NHUtil.Disconnect();
 
 
 #### CRUD
-For SELECT all records:
+For **SELECT** all records:
 ```csharp
 Person[] people = NHUtil.Select<Person>();
 // or
 List<Person> people = new List<Person>(NHUtil.Select<Person>());
 ```
 
-For SELECT just one record by ID:
+For **SELECT** just one record by ID:
 ```csharp
 Person person = NHUtil.Select<Person>(1);
 ```
 
-The INSERT:
+The **INSERT**:
 ```csharp
 Person person = new Person();
 person.name = "Richard";
@@ -83,7 +83,7 @@ person.age = 23;
 NHUtil.SaveOrUpdate(person);
 ```
 
-The UPDATE:
+The **UPDATE**:
 ```csharp
 Person person = NHUtil.Select<Person>(1);
 person.name = "Tom";
@@ -91,10 +91,10 @@ person.age = 34;
 NHUtil.SaveOrUpdate(person);
 ```
 
-The DELETE:
+The **DELETE**:
 ```csharp
 Person person = NHUtil.Select<Person>(1);
 NHUtil.Delete(person);
 ```
 
-
+#### Batch INSERT, UPDATE and DELETE
