@@ -1,6 +1,6 @@
 NHibernateUtil
 ==============
-This utility class makes the NHibernate + Fluent NHibernate more easier and fun!
+This C# utility class makes the NHibernate + Fluent NHibernate more easier and fun!
 
 This simple class comes pre configured for MySQL, PostgreSQL, SQL Server 2008, SQLite and Oracle 10g.
 
