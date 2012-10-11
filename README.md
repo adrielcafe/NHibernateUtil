@@ -1,6 +1,6 @@
 NHibernateUtil
 ==============
-Utility class for NHibernate
+This utility class makes the NHibernate more easier and fun!
 
 How to use
 ----------
