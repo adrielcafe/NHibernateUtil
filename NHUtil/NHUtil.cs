@@ -36,19 +36,19 @@ namespace NHibernate.Util
         /// <summary>
         /// Connects to database
         /// </summary>
-        /// <param name="sgbd">The DBMS that will be connected</param>
+        /// <param name="dbms">The DBMS that will be connected</param>
         /// <param name="server">The server</param>
         /// <param name="port">The port</param>
         /// <param name="database">The database</param>
         /// <param name="username">The username</param>
         /// <param name="password">The password</param>
         /// <returns>True if succeed</returns>
-		public static bool Connect(DBMS sgbd, string server, int port, string database, string username, string password)
+		public static bool Connect(DBMS dbms, string server, int port, string database, string username, string password)
 		{
 			try
 			{
                 string conStr = null;
-                switch (sgbd)
+                switch (dbms)
                 {
                     case DBMS.SQLServer2008:
                         conStr = string.Format("Data Source={0}; User Id={2}; Password={3}; Integrated Security=SSPI;",
@@ -59,12 +59,12 @@ namespace NHibernate.Util
                             server, database, username, password);
                         break;
                     default:
-                        string.Format("Server={0}; Port={1}; Database={2}; User ID={3}; Password={4};",
+                        conStr = string.Format("Server={0}; Port={1}; Database={2}; User ID={3}; Password={4};",
                             server, port, database, username, password);
                         break;
                 }
 
-				switch (sgbd)
+				switch (dbms)
 				{
 					case DBMS.MySQL:
 						config = Fluently.Configure()
