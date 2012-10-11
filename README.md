@@ -105,7 +105,23 @@ NHUtil.Delete(person);
 #### Batch INSERT, UPDATE and DELETE
 The only thing you need to do is send a *object[]* this way:
 ```csharp
+// INSERT
+List<Person> people = new List<Person>();
+for (int i = 0; i < 10; i++)
+{
+    Person person = new Person();
+    person.name = "Person " + (i + 10);
+    person.age = new Random().Next(1, 99);
+    
+    people.Add(person);
+}
 
+NHUtil.SaveOrUpdate(people.ToArray());
+
+// DELETE
+Person[] people = NHUtil.Select<Person>();
+NHUtil.Delete(people);
 ```
 
 
+#### Simple like that!
